@@ -1,0 +1,74 @@
+.profil {
+  height: 100vh;
+ 
+  background-image: url('../../img/main-artisans.svg');
+
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    margin: 5% 15%;
+}
+.content-profil {
+  display: flex;
+}
+.realisation-art {
+  flex: 1;
+}
+.profil-art {
+  flex: 1;
+  padding-left: 5%;
+}
+.profil-art p {
+  font-size: 0.85rem;
+}
+
+.profil-art ul {
+  list-style-type: none;
+  padding: 0;
+}
+.profil-art li {
+  margin: 15px 0;
+}
+.g-btn {
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.g-btn button {
+  border: none;
+}
+.box {
+  width: 500px;
+  border-radius: 2rem;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  border-radius: 1rem;
+}
+
+.content-avis {
+  display: flex;
+  flex-direction: column;
+  margin: 5% 0;
+}
+.avis-title{
+    background-color: var(--bleu-cl);
+    padding: 10px 10px;
+    color: #fff;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.block-avis {
+  background-color: rgb(233, 237, 255);
+  padding:15px 25px;
+  border: solid 0.1em rgb(233, 237, 255);
+  border-bottom-color:#bac2fc;
+}
+.block-avis p {
+  font-size: 0.8rem;
+}

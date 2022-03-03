@@ -1,0 +1,41 @@
+.card{
+   height: 100vh;
+   padding: 50px 0;
+}
+.card-title{
+
+  display: flex;
+  justify-content: center;
+  margin: 25px;
+  
+}
+
+.gr-card {
+  margin:15px ;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.card-body {
+  width: 250px;
+  background-color: #fff;
+  display: flex;
+  border-radius: 1rem;
+  padding: 10px;
+  margin: 15px;
+}
+.cercle{
+  position: relative;
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+img.artisan-ico{
+  width: 35px;
+}
+.txt-card{
+margin: 0 15px;
+}

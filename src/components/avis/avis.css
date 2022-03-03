@@ -1,0 +1,71 @@
+.avis {
+    height: 100vh;
+    padding: 50px 0;
+}
+
+.title-av{
+
+    display: flex;
+    justify-content: center;
+    margin: 25px;
+    
+  }
+.block-av{
+margin: 50px;
+} 
+.b-com{
+    width: 450px;
+    margin: 15px;
+   background-color: var(--bleu-cl);
+   padding: 25px;
+   border-radius: 1rem;
+   color: #fff;
+   margin:0 auto ;
+
+}
+.user-com{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.fa-star{
+    color: rgb(255, 196, 0);
+    margin-right: 2px;
+}
+.txt-com p{
+    font-size: 0.8rem;
+    text-align: justify;
+}
+.next-btn {
+    position: relative;
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  float: right;
+  bottom: 100px;
+}
+.prev-btn{
+    position: relative;
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  float: left;
+      bottom: 100px;
+ 
+}
+.fa-angle-right{
+    color: var(--orange-f);
+    justify-content: right;
+}
+.fa-angle-left{
+    color: var(--orange-f);
+     justify-content: left;
+}
