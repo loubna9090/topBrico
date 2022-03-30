@@ -48,7 +48,7 @@ export default function AddArtisan() {
   //   let file = event.target.files[0]
   //   setPhoto(file)
   // }
-  // ihqsegkdhtldif
+  
 
   return (
     <div className="formArtisan">
