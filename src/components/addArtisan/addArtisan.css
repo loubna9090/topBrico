@@ -1,0 +1,75 @@
+.formArtisan{
+
+    display: flex;
+    justify-content: center;
+    margin: 25px 0;
+    padding: 15px 0;
+}
+form{
+    margin: 15px 0;
+
+}
+input{
+    margin: 5px 0;
+    width: 500px;
+    height: 45px;
+    border-radius: 2rem; 
+    border:1px solid #bac2fc;
+    padding: 15px;
+}
+label{
+    display: flex;
+
+}
+.btn-file {
+    position: relative;
+    overflow: hidden;
+  }
+  [type="file"] {
+    height: 0;
+    overflow: hidden;
+    width: 0;
+  }
+  
+  [type="file"] + label {
+    background:var(--bleu-cl);
+    border: none;
+    border-radius: 2rem;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+      font-size: inherit;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    outline: none;
+    padding: 10px 50px;
+    position: relative;
+    transition: all 0.3s;
+    vertical-align: middle;
+  }
+  select{
+    background:var(--bleu-cl);
+    border: none;
+    border-radius: 2rem;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+      font-size: inherit;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    outline: none;
+    padding: 10px 50px;
+    position: relative;
+    transition: all 0.3s;
+    vertical-align: middle;
+  }
+  .btn-add{
+    background-color: var(--orange-f);
+    color: white;
+    border-radius: 2rem;
+    padding: 15px 15px;
+    border: none;
+  }
+  :hover.btn-add{
+    background-color: var(--orange-c);
+  }

@@ -1,16 +1,19 @@
 .profil {
-  height: 100vh;
- 
-  background-image: url('../../img/main-artisans.svg');
+
+  background: url('../../img/main-artisans.svg') bottom no-repeat;
+  background-size: cover;
 
 }
 .container{
     display: flex;
     flex-direction: column;
-    margin: 5% 15%;
+   max-width: 1100px;
+   margin-inline: auto;
+   padding: 0 15px;
 }
 .content-profil {
   display: flex;
+  margin: 25px ;
 }
 .realisation-art {
   flex: 1;
