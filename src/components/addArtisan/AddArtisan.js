@@ -16,6 +16,7 @@ export default function AddArtisan() {
   const [serviceArt, setServiceArt] = useState([])
   const [realisations, setRealisations] = useState([])
   const [photo, setPhoto] = useState('')
+  const[listeVille, setListeVille]= useState([])
 
   const saveArtisan = (e) => {
     e.preventDefault()
@@ -43,6 +44,15 @@ export default function AddArtisan() {
         console.log(error)
       })
   }
+  ArtisanServices.listeville()
+    .then((response) => {
+      console.log(response.data)
+      setListeVille(response.data)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  
   // const handlPhoto = (event) => {
   //   console.dir(event.target.files[0])
   //   let file = event.target.files[0]
@@ -52,7 +62,7 @@ export default function AddArtisan() {
 
   return (
     <div className="formArtisan">
-      <form method="post" name="artisanForm" enctype="multipart/form-data">
+      <form method="post" name="artisanForm" encType="multipart/form-data">
         <div>
           <label>Nom :</label>
           <input
@@ -68,7 +78,7 @@ export default function AddArtisan() {
           <input
             type="text"
             id="prenomArtisan"
-            name='rsArtisan'
+            name='prenomArtisan'
             value={prenomArtisan}
             onChange={(e) => setPrenomArtisan(e.target.value)}
           />
@@ -156,11 +166,11 @@ export default function AddArtisan() {
             id="ville"
             value={ville}
             onChange={(e) => setVille(e.target.value)}
-          >
-            <option>Choisir la ville</option>
-            <option value="choisy-le-roi">choisy le roi</option>
-            <option value="paris">Paris</option>
-            <option value="vitry">Vitry</option>
+          > 
+          <option>Choisir la ville</option>
+          {listeVille.map((laVille)=>(
+            <option value={laVille.Nom_commune}>{laVille.Nom_commune}</option>
+          ))}
           </select>
         </div>
 

@@ -11,5 +11,8 @@ class ArtisanServices{
         return axios.post(ARTISAN_BASE_REST_API_URL, artisan );
 
     }
+    listeville(){
+        return axios.get('https://raw.githubusercontent.com/high54/Communes-France-JSON/master/france.json');
+    }
 }
 export default new ArtisanServices()
