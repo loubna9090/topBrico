@@ -17,6 +17,7 @@ export default function AddArtisan() {
   const [realisations, setRealisations] = useState([])
   const [photo, setPhoto] = useState('')
   const[listeVille, setListeVille]= useState([])
+  
 
   const saveArtisan = (e) => {
     e.preventDefault()
