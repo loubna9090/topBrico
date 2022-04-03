@@ -2,6 +2,8 @@ import React from 'react'
 import './addArtisan.css'
 import { useState } from 'react'
 import ArtisanServices from '../../services/ArtisanServices'
+import { services } from '../../data'
+import {listeVille} from '../../data'
 
 export default function AddArtisan() {
   const [nomArtisan, setNomArtisan] = useState('')
@@ -16,8 +18,7 @@ export default function AddArtisan() {
   const [serviceArt, setServiceArt] = useState([])
   const [realisations, setRealisations] = useState([])
   const [photo, setPhoto] = useState('')
-  const[listeVille, setListeVille]= useState([])
-  
+
 
   const saveArtisan = (e) => {
     e.preventDefault()
@@ -45,21 +46,13 @@ export default function AddArtisan() {
         console.log(error)
       })
   }
-  ArtisanServices.listeville()
-    .then((response) => {
-      console.log(response.data)
-      setListeVille(response.data)
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-  
+
+
   // const handlPhoto = (event) => {
   //   console.dir(event.target.files[0])
   //   let file = event.target.files[0]
   //   setPhoto(file)
   // }
-  
 
   return (
     <div className="formArtisan">
@@ -79,7 +72,7 @@ export default function AddArtisan() {
           <input
             type="text"
             id="prenomArtisan"
-            name='prenomArtisan'
+            name="prenomArtisan"
             value={prenomArtisan}
             onChange={(e) => setPrenomArtisan(e.target.value)}
           />
@@ -153,26 +146,29 @@ export default function AddArtisan() {
             onChange={(e) => setServiceArt([e.target.value])}
           >
             <option value="">Choisir les services</option>
-            <option value="maçonnerie">maçonnerie</option>
-            <option value="plomberie">plomberie</option>
-            <option value="peinture">peinture</option>
-            <option value="serrurie">serrurie</option>
-            <option value="carrelage">carrelage</option>
+            {services.map((serv) => (
+              <option value={serv.id}>{serv.nomService}</option>
+            ))}
           </select>
         </div>
         <div>
           <label>Ville :</label>
-          <select
+          <input
             name="ville"
             id="ville"
+            list='villes'
             value={ville}
             onChange={(e) => setVille(e.target.value)}
-          > 
-          <option>Choisir la ville</option>
-          {listeVille.map((laVille)=>(
-            <option value={laVille.Nom_commune}>{laVille.Nom_commune}</option>
-          ))}
-          </select>
+          >
+
+          </input>
+
+          <datalist id="villes">
+            <option>Choisir la ville</option>
+            {listeVille.map((laVille) => (
+              <option value={laVille.region_code}>{laVille.slug}</option>
+            ))}
+          </datalist>
         </div>
 
         <div>
@@ -180,7 +176,7 @@ export default function AddArtisan() {
           <input
             type="text"
             id="realisations"
-            name='realisations'
+            name="realisations"
             value={realisations}
             onChange={(e) => setRealisations([e.target.value])}
           />
