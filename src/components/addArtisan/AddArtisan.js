@@ -36,6 +36,11 @@ export default function AddArtisan() {
       realisations,
       photo,
     }
+    const fd = new FormData(); 
+
+    fd.append('photo', photo.files[0]);
+    artisan.photo=fd;
+    console.log(fd);
 
     ArtisanServices.createArtisan(artisan)
       .then((response) => {
@@ -56,7 +61,7 @@ export default function AddArtisan() {
 
   return (
     <div className="formArtisan">
-      <form method="post" name="artisanForm" encType="multipart/form-data">
+      <form name="artisanForm">
         <div>
           <label>Nom :</label>
           <input
@@ -147,7 +152,7 @@ export default function AddArtisan() {
           >
             <option value="">Choisir les services</option>
             {services.map((serv) => (
-              <option value={serv.id}>{serv.nomService}</option>
+              <option value={serv.nomService}>{serv.nomService}</option>
             ))}
           </select>
         </div>
@@ -189,8 +194,8 @@ export default function AddArtisan() {
             id="file"
             name="photo"
             className="btn-file"
-            value={photo}
-            onChange={(e) => setPhoto(e.target.value)}
+            //  value={photo}
+             onChange={(e) => setPhoto(e.target)}
           />
           <label htmlFor="file" className="btn-2">
             Ajouter des photos
