@@ -1,9 +1,9 @@
 import React from 'react'
 import './addArtisan.css'
 import { useState } from 'react'
-import ArtisanServices from '../../services/ArtisanServices'
 import { services } from '../../data'
-import {listeVille} from '../../data'
+import { listeVille } from '../../data'
+// import ArtisanServices from '../../services/ArtisanServices'
 
 export default function AddArtisan() {
   const [nomArtisan, setNomArtisan] = useState('')
@@ -18,7 +18,6 @@ export default function AddArtisan() {
   const [serviceArt, setServiceArt] = useState([])
   const [realisations, setRealisations] = useState([])
   const [photo, setPhoto] = useState('')
-
 
   const saveArtisan = (e) => {
     e.preventDefault()
@@ -36,22 +35,31 @@ export default function AddArtisan() {
       realisations,
       photo,
     }
-    const fd = new FormData(); 
+    let fd = new FormData()
 
-    fd.append('photo', photo.files[0]);
-    artisan.photo=fd;
-    console.log(fd);
-
-    ArtisanServices.createArtisan(artisan)
-      .then((response) => {
-        console.log(response.data)
-        // history.push('/artisans')
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+    fd.append('photo', photo.files[0])
+    fd.append('nomArtisan', artisan.nomArtisan)
+    fd.append('prenomArtisan', artisan.prenomArtisan)
+    fd.append('rsArtisan', artisan.rsArtisan)
+    fd.append('mdpArtisan', artisan.mdpArtisan)
+    fd.append('emailArtisan', artisan.emailArtisan)
+    fd.append('adressArtisan', artisan.adressArtisan)
+    fd.append('adressArtisan2', artisan.adressArtisan2)
+    fd.append('telArtisan', artisan.telArtisan)
+    fd.append('ville', artisan.ville)
+    fd.append('serviceArt', artisan.serviceArt)
+    fd.append('realisations', artisan.realisations)
+    console.log(fd.getAll('serviceArt'))
+    for (let first of fd.entries()) {
+      console.log(first)
+    }
+    console.log(artisan)
+    console.log(fd)
+    fetch('http://localhost:8080/api/artisans/addartisan', {
+      method: 'POST',
+      body: fd,
+    })
   }
-
 
   // const handlPhoto = (event) => {
   //   console.dir(event.target.files[0])
@@ -148,6 +156,7 @@ export default function AddArtisan() {
             name="serviceArt"
             id="serviceArt"
             value={serviceArt}
+            multiple
             onChange={(e) => setServiceArt([e.target.value])}
           >
             <option value="">Choisir les services</option>
@@ -161,17 +170,15 @@ export default function AddArtisan() {
           <input
             name="ville"
             id="ville"
-            list='villes'
+            list="villes"
             value={ville}
             onChange={(e) => setVille(e.target.value)}
-          >
-
-          </input>
+          ></input>
 
           <datalist id="villes">
             <option>Choisir la ville</option>
             {listeVille.map((laVille) => (
-              <option value={laVille.region_code}>{laVille.slug}</option>
+              <option value={laVille.ville}>{laVille.ville}</option>
             ))}
           </datalist>
         </div>
@@ -195,7 +202,7 @@ export default function AddArtisan() {
             name="photo"
             className="btn-file"
             //  value={photo}
-             onChange={(e) => setPhoto(e.target)}
+            onChange={(e) => setPhoto(e.target)}
           />
           <label htmlFor="file" className="btn-2">
             Ajouter des photos
